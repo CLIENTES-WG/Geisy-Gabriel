@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geisy & Gabriel</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: auto;
+            padding: 22px;
+        }
+
+        /* animação suave */
+        .fade {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s forwards;
+        }
+
+        .fade:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .fade:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .fade:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .fade:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .fade:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title {
+            font-family: 'Great Vibes', cursive;
+            text-align: center;
+            font-size: 38px;
+            color: #0d1b2a;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #777;
+        }
+
+        .image {
+            width: 100%;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .text {
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #444;
+        }
+
+        /* NOVO CONTADOR DELICADO */
+        .countdown {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #0d1b2a;
+        }
+
+        .count-top {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .count-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            margin-bottom: 5px;
+        }
+
+        .count-bottom {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .count-small {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* botões */
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 14px;
+            margin-bottom: 12px;
+            border-radius: 14px;
+            background: #0d1b2a;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        .footer-img {
+            margin-top: 25px;
+        }
+
+        .final {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            margin-top: 25px;
+            line-height: 1.6;
+        }
+
+        /* modal */
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 18px;
+            width: 90%;
+            max-width: 400px;
+            animation: fadeUp 0.5s;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .add-btn {
+            background: #eee;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .confirm {
+            background: #0d1b2a;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .close {
+            text-align: right;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="title fade">Geisy & Gabriel</div>
+        <div class="subtitle fade">NOSSO GRANDE DIA</div>
+
+        <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac" class="image fade">
+
+        <div class="text fade">
+            Com a bênção de Deus e o amor que nos uniu,<br><br>
+            decidimos dar um novo passo em nossa história.<br><br>
+            É com muita alegria que convidamos você<br>
+            para celebrar conosco o nosso casamento.<br><br>
+            Sua presença tornará esse momento ainda mais especial<br>
+            e inesquecível em nossas vidas.<br><br>
+            Contamos com você nesse dia tão importante!
+        </div>
+
+        <!-- CONTADOR NOVO -->
+        <div class="countdown fade">
+            <div class="count-top">FALTAM APENAS</div>
+            <div class="count-main"><span id="d">0</span> dias</div>
+            <div class="count-bottom">para o nosso grande dia</div>
+            <div class="count-small">
+                <span id="h">0</span>h •
+                <span id="m">0</span>min •
+                <span id="s">0</span>s
+            </div>
+        </div>
+
+        <a href="https://maps.app.goo.gl/1uzwbsvfUwGrdamQ6?g_st=ac" target="_blank" class="btn fade">Cerimônia</a>
+        <a href="https://maps.app.goo.gl/oWuD8mo7xEbJbGrd6?g_st=iw" target="_blank" class="btn fade">Festa</a>
+        <a href="https://lista.havan.com.br/Convidado/ItensListaPresente/927424" target="_blank" class="btn fade">Lista
+            de Presentes</a>
+        <a onclick="openModal()" class="btn fade">Confirmar Presença</a>
+
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552" class="image footer-img fade">
+
+        <div class="final fade">
+            Será uma alegria imensa compartilhar esse momento com você.<br>
+            Esperamos por você com carinho 🤍
+        </div>
+
+    </div>
+
+    <!-- modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+
+            <div class="close" onclick="closeModal()">✕</div>
+
+            <h3>Confirmar Presença</h3>
+
+            <div id="inputs"></div>
+
+            <button class="add-btn" onclick="addInput()">+ Adicionar convidado</button>
+
+            <button class="confirm" onclick="sendWhats()">Confirmar</button>
+
+        </div>
+    </div>
+
+    <script>
+
+        const target = new Date("2026-06-13T19:00:00");
+
+        setInterval(() => {
+            const now = new Date();
+            const diff = target - now;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const m = Math.floor((diff / (1000 * 60)) % 60);
+            const s = Math.floor((diff / 1000) % 60);
+
+            document.getElementById("d").innerText = d;
+            document.getElementById("h").innerText = h;
+            document.getElementById("m").innerText = m;
+            document.getElementById("s").innerText = s;
+
+        }, 1000);
+
+        function openModal() {
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("inputs").innerHTML = "";
+            addInput();
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        function addInput() {
+            const container = document.getElementById("inputs");
+            const total = container.querySelectorAll("input").length;
+
+            if (total >= 6) {
+                alert("Máximo de 6 convidados");
+                return;
+            }
+
+            container.innerHTML += `<input type="text" placeholder="Nome do convidado">`;
+        }
+
+        function sendWhats() {
+            const inputs = document.querySelectorAll("#inputs input");
+            let nomes = [];
+
+            inputs.forEach(i => {
+                if (i.value.trim() != "") {
+                    nomes.push(i.value);
+                }
+            });
+
+            if (nomes.length == 0) {
+                alert("Digite pelo menos um nome");
+                return;
+            }
+
+            let msg = "Confirmação de presença - Geisy & Gabriel:%0A";
+
+            nomes.forEach(n => {
+                msg += "- " + n + "%0A";
+            });
+
+            window.open(`https://wa.me/5566996323351?text=${msg}`);
+        }
+
+    </script>
+
+</body>
+
+</html>
